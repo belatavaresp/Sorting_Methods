@@ -19,6 +19,14 @@ void printvec(int arr[], int n)
     std::cout << std::endl;
 }
 
+//creates a random vector with numbers 1-20
+void randVector(int vec[], int n){
+    srand (time(NULL));
+    for(int i = 0; i<n; i++){
+        vec[i] = (rand() % 21);
+    }
+} 
+
 // BUBBLE SORT
 // Complexity --> Worst case = O(nˆ2)
 //                Best case = O(1)
