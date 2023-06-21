@@ -101,28 +101,28 @@ void quickSort(int vec[], int begin, int end)
     int i, j, pivot;
     i = begin;
     j = end - 1;
-    pivot = vec[(begin + end) / 2];
+    pivot = vec[(begin + end) / 2]; //floor of middle element
     while (i <= j)
     {
         while (vec[i] < pivot && i < end)
         {
-            i++;
+            i++; //find smallest element to the left
         }
         while (vec[j] > pivot && j > begin)
         {
-            j--;
+            j--; //find biggest element to the right
         }
-        if (i <= j)
+        if (i <= j)//not stable
         {
-            swap(&vec[i], &vec[j]);
+            swap(&vec[i], &vec[j]); //order: smallest goes left, biggest goes right
             i++;
             j--;
         }
     }
     if (j > begin)
-        quickSort(vec, begin, j + 1);
+        quickSort(vec, begin, j + 1); //sort left subarray
     if (i < end)
-        quickSort(vec, i, end);
+        quickSort(vec, i, end); // sort right subarray
 }
 
 // function used in merge sort to merge subvectors
